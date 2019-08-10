@@ -3,7 +3,7 @@
 int main() {
 
   int defpin=1541;
-  int pin,flag=1;
+  int pin;
   int tries = 3;
 
   std::cout << "Lock Room\n"; //Message
