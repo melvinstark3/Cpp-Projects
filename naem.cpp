@@ -1,3 +1,4 @@
+#include <iostream>
 
 //string=name and int=number as parameter
 void name_x_times(std::string name, int x){
