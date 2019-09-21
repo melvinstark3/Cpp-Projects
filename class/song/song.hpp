@@ -6,6 +6,8 @@ class Song{
 public:
   //define constructer by using the Class name and defining parameters)
   Song(std::string new_title,std::string new_artist);
+  //define destructor
+  ~Song();
   std::string get_title();
   std::string get_artist();
 };
