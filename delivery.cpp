@@ -17,6 +17,11 @@ int main() {
     total=total+delivery_order[i];
   }
   
+  for (double pr : delivery_order){
+        std::cout << "Price of Item " << i << " : " << pr << "\n";
+        i++;
+    }
+  
   std::cout << "Total Bill amount= " << total;
   
 }
