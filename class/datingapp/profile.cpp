@@ -19,6 +19,7 @@ std::string Profile::view_profile() {
   bio = bio + name;
   bio = bio + "\nAge: ";
   bio = bio + std::to_string(age); //used to_string() to convert the integer into string
+  bio = bio + "\nLocation: " + city;
   bio = bio + "\nPronouns: " + pronouns;
 
   //range based for loop to add hobbies
