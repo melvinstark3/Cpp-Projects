@@ -10,7 +10,7 @@ Song::Song(std::string new_title,std::string new_artist){
 //destructor
 
 Song::~Song(){
-std::cout << "Goodbye " << title;
+std::cout << "Goodbye \n" << title;
 }
 
 std::string Song::get_title(){
