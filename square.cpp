@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 int main() 
 {
   
@@ -7,7 +7,7 @@ int main()
   int square = 0;
   
   //Get input from users
-  std::cout<<"Enter the ending numbers : ";
+  std::cout<<"Enter the ending numbers : \n";
   std::cin>>n;
   
   //Code to show squares
