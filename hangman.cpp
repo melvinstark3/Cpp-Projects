@@ -1,65 +1,131 @@
-#include<stdio.h>
-#include<conio.h>
-#include<string.h>
-
-void main()
+#include <iostream>
+#include <cstdlib>
+#include<ctime>
+#include <string>
+using namespace std;
+ 
+int NUM_TRY=3;
+int checkGuess (char, string, string&);
+void main_menu();
+string message = "Play!";
+ 
+ 
+int main(int argc, char *argv[])
 {
-int i,j,c,count=0,ans=0,flag=0,*ptr;
-char a[1][6]={"dogodo"};
-
-char b[10],alpha;
-char d='_';
-clrscr();
-c=strlen(&a[0][0]);
-
-printf("\n\n\t\t\t ** HANGMAN ** \n");
-	printf("\n\t\t\t**************\t\t\t");
-		printf("\n\t\t\t..............\n\n\t\t\t  ");
-for(j=0;j<c;j++)
-	  { printf("%c ",d);
-	  b[j]=d;}
-
-	  printf("\n\n\t\t\t..............\t\t\t");
-		printf("\n\n\t\t\t**************");
-
-while (count<6)
- {
- flag=0;
-	   printf("\n\n\n\n\n\n\t enter a char");
-		alpha=getche();
-	  
-		for(i=0;i<c;i++)
+	string name;
+	char letter;
+	string month;
+	
+ 
+    string months[] =
+	{
+		"january",
+		"february",
+		"march",
+		"april",
+		"may",
+		"june",
+		"july",
+		"august",
+		"september",
+		"october",
+		"november",
+		"december"
+	};
+	
+	srand(time(NULL));
+	int n=rand()% 12;
+	month=months[n];
+    
+	
+	string hide_m(month.length(),'X');
+ 
+	
+    
+	
+	while (NUM_TRY!=0)
+	{
+		main_menu();
+		cout << "\n\n\t\t\t\t" << hide_m;
+		cout << "\n\n\t\t\t\tGuess a letter: ";
+		cin >> letter;
+		
+		if (checkGuess(letter, month, hide_m)==0)
 		{
-			if (alpha==a[0][i])
-		   {	b[i]=a[0][i];
-		   flag=1;
-			ans++; }
+			message = "Incorrect letter.";
+			NUM_TRY = NUM_TRY - 1;
 		}
-
-
-		clrscr();
-		printf("\n\n\t\t\t ** HANGMAN ** \n");
-		printf("\n\t\t\t**************\t\t\t");
-		printf("\n\t\t\t..............\n\n\t\t\t  ");
-		for(i=0;i<c;i++)
-		printf("%c ",b[i]);
-		printf("\n\n\t\t\t..............\t\t\t");
-		printf("\n\n\t\t\t**************");
-
-		if(flag==0)
-		{count++;
-		printf("\n\n\n\n\t\t%c is a wrong guess",alpha);
-		printf("\n\n\t\t (u have %d more guesses)",6-count);}
-
-		else{
-		printf("\n\n\t\t u r correct!!");
-	   printf("\n\t\t( u have %d more words to go)",c-ans);}
-		if(ans==c) break;
- }
- if(ans==c) printf("\n\n\n\t you won");
- else printf("\n\n\n\t\t  u lose.\n\n \t\t **SORRY  U R HANGED**");
-
-	  
-getch();
-
+		else
+		{
+			message = "NICE! You guess a letter";
+		}
+ 
+ 
+		
+		if (month==hide_m)
+		{
+			message = "Congratulations! You got it!";
+			main_menu();
+			cout << "\n\t\t\t\tThe month is : " << month << endl;
+			break;
+		}
+	}
+	if(NUM_TRY == 0)
+	{
+		message = "NOOOOOOO!...you've been hanged.";
+		main_menu();
+		cout << "\n\t\t\t\tThe month was : " << month << endl;
+	}
+	cin.ignore();
+	cin.get();
+	return 0;
+}
+ 
+ 
+int checkGuess (char guess, string secretmonth, string &guessmonth)
+{
+	int i;
+	int matches=0;
+	int len=secretmonth.length();
+	for (i = 0; i< len; i++)
+	{
+		
+		if (guess == guessmonth[i])
+			return 0;
+		
+		if (guess == secretmonth[i])
+		{
+			guessmonth[i] = guess;
+			matches++;
+		}
+	}
+	return matches;
+}
+ 
+void main_menu()
+{
+	 system("color 05");
+                system("cls");
+                 cout<<"\t\t\t\t*\t*";
+ 
+  cout<<"\t\t\t\t**\t**";
+   cout<<"\t\t\t\t***\t***";
+   cout<<"\t\t\t\t****\t****";
+   cout<<"\t\t\t\t*****\t*****";
+    cout<<"\t\t\t\t******\t******";
+   cout<<"\t\t\t\t*******\t*******";
+   cout<<"\t\t\t\t*******\t*******";
+   cout<<"\t\t\t\t******\t******";
+   cout<<"\t\t\t\t*****\t*****";
+   cout<<"\t\t\t\t****\t****";
+   cout<<"\t\t\t\t***\t***";
+   cout<<"\t\t\t\t**\t**";
+   cout<<"\t\t\t\t*\t*";
+ 
+ cout<<"\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+                cout<<"\n\t\t\t\tHangman Game!";
+				cout << "\n\t\tYou have " << NUM_TRY << " tries to try and guess the month.";
+				cout<<"\n\n\t\t\t\t"+message;
+ cout<<"\n\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+ 
 }
