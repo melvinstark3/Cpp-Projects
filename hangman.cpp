@@ -122,10 +122,10 @@ void main_menu()
    cout<<"\t\t\t\t**\t**";
    cout<<"\t\t\t\t*\t*";
  
- cout<<"\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+ cout<<"\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
                 cout<<"\n\t\t\t\tHangman Game!";
 				cout << "\n\t\tYou have " << NUM_TRY << " tries to try and guess the month.";
 				cout<<"\n\n\t\t\t\t"+message;
- cout<<"\n\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+ cout<<"\n\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
  
 }
