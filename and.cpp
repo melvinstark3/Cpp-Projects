@@ -2,12 +2,16 @@
 
 int main() {
   
-  bool hunger = true;
-  bool anger = true;
+  bool hunger;
+  bool anger;
   
   // Write the code below:
-  if (hunger==true && anger==true){
-    std::cout << "RRRUUUUUUUUUNNNNNN";
+  cout << "are you hungry?";
+  cin >> hunger;
+  cout << "are you angry?";
+  cin >> anger;
+  if (hunger==yes && anger==yes){
+    std::cout << "FUCKINGGG RRRUUUUUUUUUNNNNNN";
   }
   
 }
